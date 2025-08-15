@@ -1,0 +1,25 @@
+// /**
+//  * The following styles get applied both on the front of your site
+//  * and in the editor.
+//  *
+//  * Replace them with your own styles or remove the file completely.
+//  */
+
+// .wp-block-create-block-firstplugin {
+// 	background-color: #21759b;
+// 	color: #fff;
+// 	padding: 2px;
+// }
+
+.services{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px
+}
+
+.features{
+  border: 2px solid grey;
+  padding: 15px;
+  border-radius: 20px;
+  font-family: sans-serif
+}
