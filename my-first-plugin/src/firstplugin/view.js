@@ -1,25 +1,27 @@
-/**
- * Use this file for JavaScript code that you want to run in the front-end
- * on posts/pages that contain this block.
- *
- * When this file is defined as the value of the `viewScript` property
- * in `block.json` it will be enqueued on the front end of the site.
- *
- * Example:
- *
- * ```js
- * {
- *   "viewScript": "file:./view.js"
- * }
- * ```
- *
- * If you're not making any changes to this file because your project doesn't need any
- * JavaScript running in the front-end, then you should delete this file and remove
- * the `viewScript` property from `block.json`.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
- */
+document.querySelector("#showPets").addEventListener("change", addAction);
 
-/* eslint-disable no-console */
-console.log( 'Hello World! (from create-block-firstplugin block)' );
-/* eslint-enable no-console */
+function addAction(e){
+
+    let selected = this.options[this.selectedIndex];
+
+    if (!selected.value) {
+        document.getElementById("stayHidden").style.display = "none";
+        return;
+    }
+
+    // Get attributes
+    let title = selected.getAttribute("data-title");
+    let excerpt = selected.getAttribute("data-excerpt");
+    let img = selected.getAttribute("data-img");
+    let link = selected.getAttribute("data-link");
+
+    // Update display
+    document.getElementById("petTitle").innerText = title;
+    document.getElementById("petExcerpt").innerText = excerpt;
+    document.getElementById("petImg").src = img;
+    document.getElementById("petLink").href = link;
+
+
+    document.getElementById("stayHidden").style.display = "block";
+
+}
