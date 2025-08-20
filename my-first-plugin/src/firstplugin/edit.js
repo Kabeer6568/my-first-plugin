@@ -29,10 +29,25 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+export default function Edit(props) {
+
+	function handleHeadingChange(e){
+		props.setAttributes({headingText: e.target.value})
+	}
+
+	function handleWeightChange(e){
+		props.setAttributes({showWeight: e.target.value == "yes" ? true : false})
+	}
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'First Plugin – hello from Kabeer Ali Alvi!', 'firstplugin' ) }
-		</p>
+		<div { ...useBlockProps() }>
+			<input onChange={handleHeadingChange} type="text" value={props.attributes.headingText} />
+
+			<p>Show weight after pet name</p>
+			<select onChange={handleWeightChange}>
+				<option selected= {props.attributes.showWeight} value="yes">Yes</option>
+				<option selected= {!props.attributes.showWeight} value="no">No</option>
+			</select>
+		</div>
 	);
 }

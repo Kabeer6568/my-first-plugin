@@ -5,6 +5,11 @@
 	"version": "0.1.0",
 	"title": "First Plugin",
 	"category": "widgets",
+	"attributes": {
+		"headingText" : {"type": "string", "default": "Our Pets" },
+		"showWeight" : {"type": "boolean", "default": true}
+
+	},
 	"icon": "smiley",
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},

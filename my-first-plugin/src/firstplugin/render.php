@@ -26,7 +26,7 @@ if ( $query->have_posts() ) { ?>
 <!-- <div class="pets-card alignfull"> -->
 	<div class="pets-card alignfull" id="">
 		<div class="pets-card-inner">
-			<h2 class="hero-title">Our Pets</h2>
+			<h2 class="hero-title"><?php echo  esc_html( $attributes['headingText'] )  ?>  </h2>
 			<div class="pets-card-grid">
 	
 <?php    while ( $query->have_posts() ) {
@@ -38,7 +38,7 @@ if ( $query->have_posts() ) { ?>
 <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('medium') ?> </a>
 </div>
 <div class="pets-info">
-    <h3><?php the_title() ?></h3>
+    <h3><?php the_title() ?> <?php if( $attributes['showWeight'] ) { echo '(' . get_field('weight') . ' lbs )';} ?></h3>
 	<p><?php echo wp_trim_words(get_the_content(), 14) ?></p>
     </div>
  </div>
